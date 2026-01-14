@@ -5,7 +5,7 @@ services:
   container_name: p1
   command: flask run --host=0.0.0.0
   ports:
-   - "80:5000"
+   - "5000:5000"
   volumes:
    - ./:/app
   environment:
