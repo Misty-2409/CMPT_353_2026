@@ -5,10 +5,8 @@ one with **Node.js** and one with **Python (Flask)**.
 
 Installation Requirement
 - install VS code
-- install Node.js (locally)
-	-- https://nodejs.org/en/download
--install docker 
-	-- https://docs.docker.com/desktop/setup/install/windows-install/
+- install Node.js (locally) (https://nodejs.org/en/download)
+- install docker (https://docs.docker.com/desktop/setup/install/windows-install/)
 
 
 The goal is to help students understand:
