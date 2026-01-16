@@ -1,11 +1,10 @@
-
 version: "3.9"
 services:
   web:
     build: .
-    container_name: node1
+    container_name: node_2
     ports:
-      - "8080:8080"
+      - "3002:3002"
     volumes:
       - ./:/app
     stdin_open: true
