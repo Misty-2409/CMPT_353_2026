@@ -1,4 +1,4 @@
-Week 2: Introduction to HTML and Get along with Node.js
+#Week 2: Introduction to HTML and Get along with Node.js
 
 The goal is to help students understand:
 
