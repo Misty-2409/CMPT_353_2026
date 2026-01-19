@@ -1,9 +1,11 @@
-#Week 2: Introduction to HTML and Get along with Node.js
+# Week 2: Introduction to HTML and Node.js
 
-The goal is to help students understand:
+This week introduces the basics of HTML and how it connects with a Node.js server using Express.
 
-- Run a simple Node.js server using JavaScript outside the browser
-- Understand how an Express server handles HTTP requests and responses
-- Observe server-side state using JavaScript variables
-- Distinguish between HTML pages and JSON data served by a server
-- Connect a static HTML page to server routes using hyperlinks
+## The goal is to help students understand:
+
+- How to run a simple Node.js server using JavaScript outside the browser
+- How an Express server handles HTTP requests and responses
+- How server-side state is maintained using JavaScript variables
+- The difference between HTML pages and JSON data served by a server
+- How static HTML pages connect to server routes using hyperlinks
