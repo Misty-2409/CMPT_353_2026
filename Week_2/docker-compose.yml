@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    container_name: node_2
+    ports:
+      - "3002:3002"
