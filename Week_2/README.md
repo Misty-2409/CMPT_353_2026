@@ -1,4 +1,4 @@
-# Week 2: Introduction to HTML and Node.js
+# Week 2: Introduction to HTML, CSS and Get Along with Node.js
 
 This week introduces the basics of HTML and how it connects with a Node.js server using Express.
 
@@ -9,3 +9,4 @@ This week introduces the basics of HTML and how it connects with a Node.js serve
 - How server-side state is maintained using JavaScript variables
 - The difference between HTML pages and JSON data served by a server
 - How static HTML pages connect to server routes using hyperlinks
+- How to design with CSS
