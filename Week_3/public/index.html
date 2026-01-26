@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Save Your Name</h2>
+
+<input id="nameInput" placeholder="Enter name">
+<button onclick="sendName()">Save</button>
+
+<p id="result"></p>
+
+<script>
+function sendName() {
+  // ✅ DOM: read value
+  const name = document.getElementById('nameInput').value;
+
+  // ✅ Fetch API
+  fetch('/save-name', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: name })
+  })
+  .then(res => res.text())
+  .then(msg => {
+    // ✅ DOM: update page
+    document.getElementById('result').textContent = msg;
+  });
+}
+</script>
+
+</body>
+</html>
