@@ -1,0 +1,30 @@
+/***without docker***/
+create your node file  (see previous lab examples)
+type your code (server.js)
+run it and check the names.txt file on your project or folder
+
+/***with docker***/
+Step 1: run your docker in vs code as it is (see previous lab examples)
+Step 2: heck the names.txt file on your project or folder (no update right!! Go to Step 3)
+        "Docker containers have isolated filesystems; files written inside a container do not appear on the host unless we explicitly connect them"
+Step 3: change 
+Step 4: open a new terminal and type the following commands
+              docker exec -it container_name bash
+              cat file.txt
+      but this is not the file and also it does not have the same content as your computer fil.txt
+      Again 
+        "Docker containers have isolated filesystems; files written inside a container do not appear on the host unless we explicitly connect them"
+        "Docker does NOT share files with your computer unless you tell it to"
+Step 5: create a folder name data and create a file named names_new.txt inside the data folder
+Step 6: Add this to your dockerfile
+        COPY data ./data  
+Step 7: Add this to you docker-compose.yml
+        volumes:
+         ./data:/app/data
+Step 8: Force all image or contaienr built for this current code (server.js or your current cotainer name)
+        docker compose down --rmi all
+Step 9: open the bash for your container 
+        docker exec -it node_week_3 bash
+Step 10: open the name file on data directory
+        cd data
+        cata names_new.txt
