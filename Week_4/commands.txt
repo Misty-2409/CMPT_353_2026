@@ -1,0 +1,24 @@
+npm init -y
+npm install express
+npm install -D typescript ts-node @types/node @types/express
+npm install cors
+npm install -D @types/cors
+npm pkg set type=module
+npx tsc --init
+
+-->then go to tsconfig.json and comment out dist
+
+compile and create js version -->  npx tsc
+check js creation --> dist/server.js
+and then run js code --> node dist/server.js
+
+
+
+Package			Why
+typescript		Understand .ts
+ts-node	Run 	.ts directly
+@types/node		Node types
+@types/express	Express types
+
+These packages let Node understand TypeScript.
+
