@@ -1,0 +1,21 @@
+# Use Node image
+FROM node:latest
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy compiled JS + public files
+COPY dist ./dist
+COPY public ./public
+
+# Expose port
+EXPOSE 3002
+
+# Run the app
+CMD ["node", "dist/server.js"]

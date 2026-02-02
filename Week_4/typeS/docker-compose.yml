@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: node_week_4_new
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./data:/app/data
+   
+  
