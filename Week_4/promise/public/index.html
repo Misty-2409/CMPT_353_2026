@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message Saver</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Send a Message</h1>
+
+  <!-- Simple input -->
+  <input id="msg" placeholder="Type a message" />
+
+  <br>
+
+  <!-- Buttons hit different routes -->
+  <button onclick="sendCallback()">Send (Callback)</button>
+  <button onclick="sendPromise()">Send (Promise)</button>
+  <button onclick="sendAsync()">Send (Async/Await)</button>
+
+  <p id="result"></p>
+
+  <script>
+    /* ===============================
+       WEEK 3 + WEEK 4: fetch()
+       =============================== */
+
+    function sendCallback() {
+      send('/message-callback');
+    }
+
+    function sendPromise() {
+      send('/message-promise');
+    }
+
+    function sendAsync() {
+      send('/message-async');
+    }
+
+    function send(url) {
+      const message = document.getElementById('msg').value;
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      })
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('result').innerText = text;
+      })
+      .catch(err => {//catch is the place where we handle failure.
+        document.getElementById('result').innerText = 'Client error';
+      });
+    }
+  </script>
+
+</body>
+</html>
