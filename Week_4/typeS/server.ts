@@ -25,6 +25,16 @@ let users: User[] = [
 app.use(express.json());
 app.use(express.static("public"));
 
+
+/*
+CRUD	HTTP task that the node will do
+----	----------------------------
+Create	POST
+Read	GET
+Update	PUT / PATCH
+Delete	DELETE
+
+*/
 // --------------------
 // GET all users
 // --------------------

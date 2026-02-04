@@ -1,10 +1,16 @@
 services:
-  web:
+  api:
     build: .
-    container_name: node_week_4_new
+    container_name: node_week_4_ts
     ports:
       - "3002:3002"
     volumes:
-      - ./data:/app/data
-   
-  
+      - .:/app
+      - /app/node_modules
+      #prevents container-installed dependencies from being 
+      #overwritten when mounting the project directory into the container.
+      #import express from "express";    
+    ## .ts to .js
+    command: node dist/server.js
+    ## .ts
+    #command: npx ts-node server.ts

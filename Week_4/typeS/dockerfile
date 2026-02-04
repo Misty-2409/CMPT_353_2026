@@ -11,11 +11,15 @@ COPY package*.json ./
 RUN npm install
 
 # Copy compiled JS + public files
-COPY dist ./dist
+## .ts to .js
+# COPY dist ./dist
 COPY public ./public
 
 # Expose port
 EXPOSE 3002
 
 # Run the app
+## .ts to .js
 CMD ["node", "dist/server.js"]
+## .ts
+#CMD ["npx", "ts-node", "server.ts"]
