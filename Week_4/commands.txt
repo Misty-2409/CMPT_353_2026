@@ -1,5 +1,5 @@
 commands
---------------------------------------
+
 week1+week2+week3 (node and express)
 -------------------
 npm init -y
@@ -22,7 +22,11 @@ ts-node	Run 	.ts directly
 type=module		modern module import / export
 tsc --init		creates tsconfig.json
 
+--------------------------------------
 Compile and Run
+--------------------------------------
+**** without docker ****
+--------------------------------------
 --------------------------------------
 1**If you want to run .js file
 ------------------------------
@@ -36,4 +40,30 @@ Compile and Run
 ------------------------------
 --> compile and run -->  npx ts-node server.ts
 
-
+--------------------------------------
+**** with docker ****
+--------------------------------------
+1**If you want to run .js file
+------------------------------
+add the followings to your current docker (pre-week's docker)
+--> COPY dist ./dist
+--> CMD ["node", "dist/server.js"]
+add the followings to your current docker-compose.yml (pre-week's docker)
+volumes:
+      - .:/app
+      - /app/node_modules
+      #import express from "express";    
+    ## .ts to .js
+    command: node dist/server.js
+--------------------------------------
+2**If you want to run .ts file
+------------------------------
+add the followings to your current docker (pre-week's docker)
+--> CMD ["npx", "ts-node", "server.ts"]
+add the followings to your current docker-compose.yml (pre-week's docker)
+volumes:
+      - .:/app
+      - /app/node_modules
+      #import express from "express";    
+    ## .ts
+    command: npx ts-node server.ts
