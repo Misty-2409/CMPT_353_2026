@@ -22,13 +22,18 @@ ts-node	Run 	.ts directly
 type=module		modern module import / export
 tsc --init		creates tsconfig.json
 
---------------------------------------
--->then go to tsconfig.json 
-   and comment out dist
-  
 Compile and Run
 --------------------------------------
-compile and create js version -->  npx tsc
-check js creation --> dist/server.js
-and then run js code --> node dist/server.js
+1**If you want to run .js file
+------------------------------
+--> then go to tsconfig.json 
+    and comment out dist
+--> compile and create js version -->  npx tsc
+--> check js creation --> dist/server.js
+--> and then run js code --> node dist/server.js
+------------------------------
+2**If you want to run .ts file
+------------------------------
+--> compile and run -->  npx ts-node server.ts
+
 
