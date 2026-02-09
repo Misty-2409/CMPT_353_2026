@@ -1,0 +1,70 @@
+------------------------------------
+commands
+------------------------------------
+
+backend/   → Node + Express (API) + TypeScript (WEEK 4)
+frontend/  → React + Vite (UI) (WEEK 5)
+mysql/ 	   → Database (WEEK 5)
+
+------------------------------------
+week_5_react_mysql/
+│
+├── backend/
+│   ├── server.ts                # Express + MySQL API
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── tsconfig.json
+│   ├── Dockerfile               # Backend Docker image
+│   └── node_modules/
+│
+├── frontend/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.ts
+│   ├── Dockerfile               # Frontend Docker image
+│   ├── node_modules/
+│   └── src/
+│       ├── App.tsx              # React UI
+│       ├── main.tsx
+│       ├── App.css
+│       └── my_type/
+│           └── user_type.ts
+│
+├── db_data/                      # MySQL persistent volume (auto-created)
+│
+└── docker-compose.yml            # backend + frontend + MySQL
+
+------------------------------------
+--> create backend and frontend exactly like previous example (see commands.txt)
+--> from main/root project
+	--> cd backend
+	--> npm install mysql2
+	--> cd..
+	--> cd frontend
+	--> npm install react-router-dom
+	--> npm run dev
+------------------------------------
+potential error
+------------------------------------
+if 3002 port is occupied by previous week's code.
+--> check first
+	--> from root project
+		--> netstat -ano | findstr :3002
+	--> if occupied thn following:
+		--> taskkill /PID 13084 /F
+------------------------------------
+docker
+------------------------------------
+--> create frontend and backend dockerfiles like previous example (see commands.txt)
+--> configure docker-compose.yml (uploaded on this repository)
+--> run the commands
+	--> docker compose down --rmi all
+	--> docker compose up --build
+--> create database by borwsing: http://localhost:3002/init
+--> now access UI or your webpage at http://localhost:5173
+-----
+Here:
+-----
+MySQL:  	http://localhost:3002/init
+server: 	http://localhost:3002/users
+react/UI: 	http://localhost:5173
