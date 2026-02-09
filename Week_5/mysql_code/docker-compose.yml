@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  # --------------------
+  # MySQL database
+  # --------------------
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+
+  # --------------------
+  # Backend (Express + TS)
+  # --------------------
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npx ts-node server.ts
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: admin
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # --------------------
+  # Frontend (React + Vite)
+  # --------------------
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/react-app
+      - /react-app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:3002
+    command: npm run dev -- --host
+
+volumes:
+  db_data:
