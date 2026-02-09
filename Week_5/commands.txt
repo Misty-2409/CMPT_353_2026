@@ -1,0 +1,94 @@
+------------------------------------
+commands
+------------------------------------
+
+backend/   → Node + Express (API) + TypeScript (WEEK 4)
+frontend/  → React + Vite (UI) (WEEK 5)
+
+------------------------------------
+backend (check WEEK 4)
+------------------------------------
+------------------------------------
+frontend
+------------------------------------
+
+1. run the following commands on your main project terminal (not in backend)
+--> npm create vite@latest frontend --template react-ts
+
+frontend					      project folder name
+--template react-ts			Use the React + TypeScript template
+
+--> cd frontend
+--> npm install
+--> npm run dev
+
+2. go to src/App.tsx 
+	--> we will code here
+	--> any file/code you want torun should be inside src/
+	
+------------------------------------
+****Without Docker****
+------------------------------------
+Server: http://localhost:3002/users
+React: http://localhost:5173/
+
+------------------------------------
+****With Docker****
+------------------------------------
+week_5_react/
+├── backend/
+│   ├── server.ts
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── tsconfig.json
+│   ├── node_modules/
+│   └── Dockerfile
+│
+├── frontend/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.ts
+│   ├── Dockerfile
+│   ├── node_modules/
+│   └── src/
+│       ├── App.tsx
+│       ├── main.tsx
+│       ├── App.css
+│       └── my_type/
+│           └── user_type.ts
+│
+└── docker-compose.yml
+
+------------------------------------
+backend dockerfile 
+------------------------------------
+on WEEK 4's dockerfile adjust the following changes
+--> # Copy rest of backend code
+	  COPY . .
+------------------------------------
+frontend dockerfile 
+------------------------------------
+create a new dockerfile like WEEK 4 and adjust the following changes
+--> # Copy rest of frontend code
+	  COPY . .
+--> # Expose Vite dev server port
+	  EXPOSE 5173
+--> # Run Vite
+	  CMD ["npm", "run", "dev", "--", "--host"]
+------------------------------------
+docker-compose.yml (detail in example uploaded)
+------------------------------------
+--> open yml file and add two instances of week 4 yml (frontend and backend)
+	--> backend 
+		--> adjust week 4 based on name/port
+	--> frontend
+		--> adjust week 4 based on name/port
+		--> add the followings:
+			environment:
+			- VITE_API_URL=http://host.docker.internal:3002
+			command: npm run dev -- --host 0.0.0.0
+--> docker compose down --rmi all
+--> docker compose up
+
+Server: http://localhost:3002/users
+React: http://localhost:5173/
