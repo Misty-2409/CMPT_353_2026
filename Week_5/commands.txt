@@ -87,8 +87,9 @@ docker-compose.yml (detail in example uploaded)
 			environment:
 			- VITE_API_URL=http://host.docker.internal:3002
 			command: npm run dev -- --host 0.0.0.0
---> docker compose down --rmi all
---> docker compose up
+--> go to your main project directory and run the followings
+	--> docker compose down --rmi all
+	--> docker compose up
 
 Server: http://localhost:3002/users
 React: http://localhost:5173/
