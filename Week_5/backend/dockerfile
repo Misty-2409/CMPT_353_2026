@@ -1,0 +1,18 @@
+FROM node:latest
+
+WORKDIR /app
+
+# Copy dependency files first
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy rest of backend code
+COPY . .
+
+# Expose backend port
+EXPOSE 3002
+
+# Run backend using ts-node
+CMD ["npx", "ts-node", "server.ts"]
