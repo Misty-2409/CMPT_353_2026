@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npx ts-node server.ts
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/react-app
+      - /react-app/node_modules
+    environment:
+      - VITE_API_URL=http://host.docker.internal:3002
+    command: npm run dev -- --host 0.0.0.0
