@@ -3,7 +3,18 @@ import type { User } from "./my_type/user_type";
 
 const API_URL = "http://localhost:3002";
 //const API_URL = "http://backend:3002";
-//Inside Docker, localhost means inside the container
+const API_URL = "http://localhost:3002";
+
+/*
+When running frontend on the host machine:
+- React runs on localhost:5173
+- Backend runs on localhost:3002
+
+If React runs inside Docker:
+- localhost means "inside the container"
+- Then we use: http://backend:3002
+*/
+
 
 function App() {
 
