@@ -4,11 +4,10 @@
 React = frontend
 Express = backend
 
-- Today:
-Next.js = frontend + backend together.
-
 React → Express API → MySQL → Docker
-NOW → Next.js (full-stack React framework)
+
+- Today:
+  Next.js = frontend + backend together. (full-stack React framework)
 
 - Previously
 
