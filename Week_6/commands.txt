@@ -61,7 +61,8 @@ Add BACKEND Logic (API Route): JSON DATA
 		test http://localhost:3000/api/users (json data your backend)
 		
 now change your webpage on src/app/users/page.tsx	
-add design src/app/users/globals.css
+add design src/app/globals.css
 add wrapper 
 	
+
 your webapage/frontend check --> http://localhost:3000/users 
