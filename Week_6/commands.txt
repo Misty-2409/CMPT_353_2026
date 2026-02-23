@@ -54,15 +54,16 @@ Add BACKEND Logic (API Route): JSON DATA
 			add route.ts code
 		src/app/api/users/[id]/route.ts
 		
-		before running (npm run dev) kill the already runnin instance on the curretn port
+		before running (npm run dev) kill the already running instance on the current port
 			netstat -ano | findstr :3000
 			taskkill /PID 10300 /F
 			
 		test http://localhost:3000/api/users (json data your backend)
 		
-now change your webpage on src/app/users/page.tsx	
+now change your webpage on src/app/page.tsx	
 add design src/app/globals.css
 add wrapper 
 	
 
 your webapage/frontend check --> http://localhost:3000/users 
+
