@@ -1,22 +1,3 @@
-Last week:
-React = frontend
-Express = backend
-
-Today:
-Next.js = frontend + backend together.
-
-React → Express API → MySQL → Docker
-NOW → Next.js (full-stack React framework)
-
-Previously
-
-“We manually connect frontend + backend”
-
-Now we will create
-
-“Frameworks that can unify this.”
-Next.js gives you a server runtime like Express, but it is deeply integrated with routing + React rendering.
-
 
 npx create-next-app@latest next-crud
 
@@ -44,11 +25,14 @@ compile and run:
 	folder structure
 		src/app/
 			layout.tsx
+			globals.css
 			page.tsx
 	here
 		page.tsx = homepage
-		layout.tsx = wrapper
+		globals.css = design = styling
+		layout.tsx = wrapper = structure
 		folder name = route
+	
 
 Create new route: (FRONTEND)
 	src/app/users/page.tsx
@@ -76,4 +60,8 @@ Add BACKEND Logic (API Route): JSON DATA
 			
 		test http://localhost:3000/api/users (json data your backend)
 		
+now change your webpage on src/app/users/page.tsx	
+add design src/app/users/globals.css
+add wrapper 
+	
 your webapage/frontend check --> http://localhost:3000/users 
