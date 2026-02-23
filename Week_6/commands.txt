@@ -1,0 +1,79 @@
+Last week:
+React = frontend
+Express = backend
+
+Today:
+Next.js = frontend + backend together.
+
+React → Express API → MySQL → Docker
+NOW → Next.js (full-stack React framework)
+
+Previously
+
+“We manually connect frontend + backend”
+
+Now we will create
+
+“Frameworks that can unify this.”
+Next.js gives you a server runtime like Express, but it is deeply integrated with routing + React rendering.
+
+
+npx create-next-app@latest next-crud
+
+	When prompts appear:
+		Would you like to use the recommended Next.js defaults? » No, customize settings
+		TypeScript? → Yes
+		ESLint? → Yes
+		App Router? → Yes
+		Tailwind? → No (keep simple)
+		src directory? → Yes
+		Import alias? → No
+		React Compiler → No
+
+cd next-crud
+
+compile and run:
+	production mode
+		npm run build
+		npm start
+	development mode
+		npm run dev
+
+	check --> http://localhost:3000 --> This is React, but powered by Next.js.
+
+	folder structure
+		src/app/
+			layout.tsx
+			page.tsx
+	here
+		page.tsx = homepage
+		layout.tsx = wrapper
+		folder name = route
+
+Create new route: (FRONTEND)
+	src/app/users/page.tsx
+		add your TypeScript to page.tsx
+			export default function UsersPage() {
+					return <h1>Users Page</h1>;
+				}
+		check --> http://localhost:3000/users 
+	No React Router needed.
+	Folder name = URL
+
+Add BACKEND Logic (API Route): JSON DATA
+
+	In Express we had server.ts.
+	In Next.js we create API routes inside app/api.
+	
+	create new route: 
+		src/app/api/users/route.ts
+			add route.ts code
+		src/app/api/users/[id]/route.ts
+		
+		before running (npm run dev) kill the already runnin instance on the curretn port
+			netstat -ano | findstr :3000
+			taskkill /PID 10300 /F
+			
+		test http://localhost:3000/api/users (json data your backend)
+		
+your webapage/frontend check --> http://localhost:3000/users 
