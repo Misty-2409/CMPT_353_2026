@@ -1,0 +1,97 @@
+Next.js and Mysql
+
+-------------------------------------
+install Next.js (check week 6)
+-------------------------------------
+npx create-next-app@latest next-crud-mysql
+
+	When prompts appear:
+		Would you like to use the recommended Next.js defaults? » No, customize settings
+		TypeScript? → Yes
+		ESLint? → Yes
+		App Router? → Yes
+		Tailwind? → No (keep simple)
+		src directory? → Yes
+		Import alias? → No
+		React Compiler → No
+-------------------------------------
+install mysql driver
+-------------------------------------
+cd next-crud-mysql
+npm install mysql2
+
+-------------------------------------
+Database files
+-------------------------------------
+1. connection file src/lib/db.ts
+2. query file src/lib/userQueries.ts
+
+-------------------------------------
+Update server files
+-------------------------------------
+1. change your week 6's src/app/api/users/route.ts to git/users/route.ts
+			add route.ts code
+2. change your week 6's src/app/api/users/[id]/route.ts from week 6 to git/users/[id]route.ts
+
+-------------------------------------
+Update docker files
+-------------------------------------
+1. download from git
+
+-------------------------------------
+compile and run
+-------------------------------------
+1. docker compose down --rmi all 
+		Only use --rmi all if you're troubleshooting.
+		This removes:
+			All images
+			Even cached base images
+			Slows future builds
+	or use
+	docker compose down -v
+2. docker compose up --build
+	
+	
+your webapage/UI check --> http://localhost:3000
+
+-------------------------------------
+Create a db table using terminal
+-------------------------------------
+1. keep docker terminal open
+	docker compose up -d
+2. open mysql terminal 
+	 docker exec -it your-mysql-container-name mysql -u root -p
+	for my code 
+	 docker exec -it mysql-container mysql -u root -p
+	then enter your database password. for my code: admin
+3. open your database
+	use usersdb; //userdb is database name
+4. create table
+	 CREATE TABLE posts (
+			id INT AUTO_INCREMENT PRIMARY KEY,
+			title VARCHAR(255),
+			user_id INT,
+			FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+	 );
+5. insert data
+	INSERT INTO posts (title, user_id) VALUES
+		('Learning Next.js', 1),
+		('Understanding SQL JOIN', 1),
+		('Docker Basics', 2);
+6. check your database table	
+	describe posts;
+	select * from posts;
+
+-------------------------------------
+add join query
+-------------------------------------
+1. add src/lib/postJoinQueries.ts from git/lib/postJoinQueries.ts
+2. add new route or page src/api/user-posts/route.ts, download from git/user-posts/route.ts
+3. confirm no error at http://localhost:3000/api/user-posts
+
+add a new page
+1. add new route src/app/user-posts/page.tsx and download git/user-posts/page.tsx
+2. add this to layout.tsx 
+	<Link href="/api/user-posts" style={{ color: "white" }}>
+            User's Post
+          </Link>
