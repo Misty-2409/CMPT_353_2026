@@ -1,0 +1,20 @@
+# Use stable Node image
+FROM node:latest
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy package files first (better caching)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy rest of project files
+COPY . .
+
+# Expose Next.js port
+EXPOSE 3000
+
+# Start development server (hot reload)
+CMD ["npm", "run", "dev", "--", "-H", "0.0.0.0"]
