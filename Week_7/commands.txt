@@ -21,20 +21,20 @@ cd next-crud-mysql
 npm install mysql2
 
 -------------------------------------
-Database files
+Database files (new)
 -------------------------------------
 1. connection file src/lib/db.ts
 2. query file src/lib/userQueries.ts
 
 -------------------------------------
-Update server files
+Update server files (based on week 6)
 -------------------------------------
-1. change your week 6's src/app/api/users/route.ts to git/users/route.ts
+1. copy git/users/route.ts to week 6's src/app/api/users/route.ts to git/users/route.ts
 			add route.ts code
-2. change your week 6's src/app/api/users/[id]/route.ts from week 6 to git/users/[id]route.ts
+2. copy git/users/[id]route.ts to week 6's src/app/api/users/[id]/route.ts from week 6
 
 -------------------------------------
-Update docker files
+Docker files 
 -------------------------------------
 1. download from git
 
@@ -55,7 +55,7 @@ compile and run
 your webapage/UI check --> http://localhost:3000
 
 -------------------------------------
-Create a db table using terminal
+Create a db table using mysql terminal
 -------------------------------------
 1. keep docker terminal open
 	docker compose up -d
@@ -73,6 +73,7 @@ Create a db table using terminal
 			user_id INT,
 			FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 	 );
+	 
 5. insert data
 	INSERT INTO posts (title, user_id) VALUES
 		('Learning Next.js', 1),
