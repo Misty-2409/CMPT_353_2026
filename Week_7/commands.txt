@@ -31,7 +31,7 @@ Update server files (based on week 6)
 -------------------------------------
 1. copy git/users/route.ts to week 6's src/app/api/users/route.ts to git/users/route.ts
 			add route.ts code
-2. copy git/users/[id]route.ts to week 6's src/app/api/users/[id]/route.ts from week 6
+2. copy git/users/[id]/route.ts to week 6's src/app/api/users/[id]/route.ts from week 6
 
 -------------------------------------
 Docker files 
@@ -95,4 +95,5 @@ add a new page
 2. add this to layout.tsx 
 	<Link href="/api/user-posts" style={{ color: "white" }}>
             User's Post
+
           </Link>
