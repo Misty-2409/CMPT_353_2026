@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User CRUD</title>
+</head>
+
+<body>
+
+<h2>Create User</h2>
+
+<input id="id" placeholder="User ID">
+<input id="name" placeholder="Name">
+
+<button onclick="addUser()">Add User</button>
+
+<h2>Users</h2>
+
+<button onclick="loadUsers()">Load Users</button>
+
+<ul id="users"></ul>
+
+<script>
+
+async function addUser() {
+
+const id = document.getElementById("id").value
+const name = document.getElementById("name").value
+
+await fetch("/users",{
+method:"POST",
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({id,name})
+})
+
+loadUsers()
+
+}
+
+async function loadUsers(){
+
+const res = await fetch("/users")
+const users = await res.json()
+
+const list = document.getElementById("users")
+
+list.innerHTML=""
+
+users.forEach(u=>{
+
+const li=document.createElement("li")
+
+li.innerHTML = u.id + " - " + u.name +
+" <button onclick='deleteUser(\""+u.id+"\")'>Delete</button>"
+
+list.appendChild(li)
+
+})
+
+}
+
+async function deleteUser(id){
+
+await fetch("/users/"+id,{
+method:"DELETE"
+})
+
+loadUsers()
+
+}
+
+</script>
+
+</body>
+</html>
