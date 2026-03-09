@@ -1,0 +1,31 @@
+services:
+
+  couchdb:
+    image: couchdb:3.4.2
+    container_name: couchdb1
+    restart: unless-stopped
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=password
+    ports:
+      - "5984:5984"
+    volumes:
+      - ./couchdb:/opt/couchdb/data
+
+  node1:
+    image: node:latest
+    container_name: node1
+    depends_on:
+      - couchdb
+    ports:
+      - "3002:3002"
+
+    working_dir: /usr/src/app
+    volumes:
+      - ./app:/usr/src/app
+
+    command: sh -c "npm install && node app.js"
+
+    environment:
+      - COUCHDB_URL=http://admin:password@couchdb:5984
+      - COUCHDB_DB=usersdb
