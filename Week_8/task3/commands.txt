@@ -1,0 +1,59 @@
+Next.js and couchDB
+
+-------------------------------------
+install Next.js (check week 6)
+-------------------------------------
+npx create-next-app@latest next-crud-mysql
+
+	When prompts appear:
+		Would you like to use the recommended Next.js defaults? » No, customize settings
+		TypeScript? → Yes
+		ESLint? → Yes
+		App Router? → Yes
+		Tailwind? → No (keep simple)
+		src directory? → Yes
+		Import alias? → No
+		React Compiler → No
+
+-------------------------------------
+Database files 
+-------------------------------------
+download from git/src/lib/couch.ts and paste to this src/lib/couch.ts
+
+
+-------------------------------------
+Update server files (based on week 6)
+-------------------------------------
+1.download git/src/app/api/users/route.ts and paste into this src/app/api/users/route.ts
+2.download git/src/app/api/users/[id]/route.ts and paste into this src/app/api/users/[id]/route.ts
+
+-------------------------------------
+Update frontends (based on week 6)
+-------------------------------------
+1. for /users
+	download git/src/app/users/page.tsx and paste into src/app/users/page.tsx
+2. for /
+	download git/src/app/page.tsx and paste into src/app/page.tsx
+	
+-------------------------------------
+Update layouts (based on week 6)
+-------------------------------------
+1. for layout
+	download git/src/app/layout.tsx and paste into src/app/layout.tsx
+2. for css
+	download git/src/app/globals.css and paste into src/app/globals.css
+
+-------------------------------------
+Docker files 
+-------------------------------------
+1. download from git
+
+-------------------------------------
+compile and run
+-------------------------------------
+1. docker compose down --rmi all 
+		
+2. docker compose up -d
+	
+	
+your webapage/UI check --> http://localhost:3000
