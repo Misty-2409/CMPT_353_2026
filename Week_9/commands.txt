@@ -16,7 +16,9 @@ week 9
 │   ├── delete.php
 │   ├── update.php
 │   ├── index.php
+│   ├── insert.php
 │   └── test.php
+│   ├── style.css
 │
 └── mysql_data
 ********************************
