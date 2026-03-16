@@ -12,8 +12,9 @@ week 9
 │
 ├── php
 │   ├── db.php
+│   ├── create.php
 │   ├── delete.php
-│   ├── edit.php
+│   ├── update.php
 │   ├── index.php
 │   └── test.php
 │
