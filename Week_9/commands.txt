@@ -1,0 +1,77 @@
+***********************************************
+Docker + PHP CRUD 
+***********************************************
+
+********************************
+Folder structure
+*******************
+week 9
+│
+├── docker-compose.yml
+├── Dockerfile
+│
+├── php
+│   ├── db.php
+│   ├── delete.php
+│   ├── edit.php
+│   ├── hello.php
+│   ├── index.php
+│   ├── product.php
+│   └── test.php
+│
+└── mysql_data
+********************************
+
+********************************
+Dockerfile and compose.yml file
+*******************
+--> download from git
+********************************
+
+********************************
+Test php
+*******************
+--> download git/php/test.php
+--> run docker
+		docker compose up -d
+--> browse http://localhost:3002/test.php
+********************************
+
+********************************
+Test mysql
+*******************
+--> download git/php/db.php
+--> run docker
+		docker compose up -d
+--> browse http://localhost:3002/test.php
+********************************
+
+********************************
+Test CRUD
+*******************
+--> Open phpMyAdmin: http://localhost:8080
+--> Type username and password mentioned in docker-compose
+--> Create a table
+		CREATE TABLE users (
+			id INT AUTO_INCREMENT PRIMARY KEY,
+			name VARCHAR(100) NOT NULL
+		);
+--> Insert something
+		INSERT INTO users (name) VALUES ('Ahil');
+--> download git/php/index.php
+--> download git/php/insert.php
+--> download git/php/update.php
+--> download git/php/delete.php
+--> run docker
+		docker compose up -d
+--> browse http://localhost:3002/test.php
+********************************
+
+********************************
+Add style
+*******************
+--> download git/php/style.css
+--> add this as a html
+	<link rel="stylesheet" href="style.css">
+	
+run docker compose up -d and final check http://localhost:3002
