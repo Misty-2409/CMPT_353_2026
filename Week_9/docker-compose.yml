@@ -1,0 +1,39 @@
+services:
+
+  # -----------------------------
+  # 1️⃣ WEB SERVER (Apache + PHP)
+  # -----------------------------
+  web:
+    build: .                 # build container using the Dockerfile in this folder
+    container_name: php_apache   # name of the container
+    ports:
+      - "3002:80"            # open localhost:3002 and send traffic to Apache port 80
+    depends_on:
+      - db                   # start database first before web container
+    volumes:
+      - ./php:/var/www/html  # map local folder "php" to Apache website folder
+
+  # -----------------------------
+  # 2️⃣ DATABASE SERVER (MySQL)
+  # -----------------------------
+  db:
+    image: mysql:8.1.0       # use official MySQL image
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: hello   # root password for MySQL
+      MYSQL_DATABASE: apache_db         # automatically create database
+    volumes:
+      - ./mysql_data:/var/lib/mysql   # store database files locally
+
+  # -----------------------------
+  # 3️⃣ DATABASE GUI (phpMyAdmin)
+  # -----------------------------
+  phpmyadmin:
+    image: phpmyadmin         # phpMyAdmin image
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"             # open phpMyAdmin at localhost:8080
+    depends_on:
+      - db                    # phpMyAdmin needs database first
+    environment:
+      PMA_HOST: db            # tells phpMyAdmin where MySQL container is
