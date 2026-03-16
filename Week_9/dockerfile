@@ -1,0 +1,5 @@
+# Use the official PHP image that already contains Apache
+FROM php:8.4-rc-apache-bullseye
+
+# Install MySQL extension so PHP can talk to MySQL database
+RUN docker-php-ext-install mysqli
