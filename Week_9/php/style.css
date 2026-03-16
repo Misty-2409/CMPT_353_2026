@@ -1,0 +1,83 @@
+/* PAGE STYLE */
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    padding:40px;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    width:700px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* HEADINGS */
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+h3{
+    margin-top:20px;
+}
+
+/* FORM INPUT */
+
+input[type=text]{
+    padding:8px;
+    width:250px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+/* BUTTON STYLE (CREATE, EDIT, DELETE ALL SAME) */
+
+button{
+    padding:8px 14px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    background:#343a40;     /* same as table header */
+    color:white;
+    margin-left:5px;
+    transition:0.3s;
+}
+
+/* BUTTON HOVER */
+
+button:hover{
+    background:#28a745;     /* green */
+    transform:scale(1.05);
+}
+
+/* TABLE STYLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th{
+    background:#343a40;
+    color:white;
+    padding:10px;
+}
+
+table td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+/* ROW HOVER */
+
+tbody tr:hover{
+    background:#f1f1f1;
+}
