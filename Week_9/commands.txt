@@ -14,9 +14,7 @@ week 9
 │   ├── db.php
 │   ├── delete.php
 │   ├── edit.php
-│   ├── hello.php
 │   ├── index.php
-│   ├── product.php
 │   └── test.php
 │
 └── mysql_data
