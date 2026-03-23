@@ -30,8 +30,8 @@ Database files (new)
 -------------------------------------
 Update server files (based on week 7)
 -------------------------------------
-1. download week 7's git/users/route.ts and paste into src/app/api/users/route.ts 
-2. download week 7's git/users/[id]/route.ts to src/app/api/users/[id]/route.ts 
+1. download week 7's git/api/users/route.ts and paste into src/app/api/users/route.ts 
+2. download week 7's git/api/[id]/route.ts to src/app/api/users/[id]/route.ts 
 
 -------------------------------------
 Update layout, css and homepage (based on week 7)
