@@ -1,0 +1,99 @@
+Next.js,  Mysql, cookie
+
+******************************** (week 7) ********************************
+-------------------------------------
+install Next.js and mysql
+-------------------------------------
+npx create-next-app@latest 
+
+	When prompts appear:
+		Would you like to use the recommended Next.js defaults? » No, customize settings
+		TypeScript? → Yes
+		ESLint? → Yes
+		App Router? → Yes
+		Tailwind? → No (keep simple)
+		src directory? → Yes
+		Import alias? → No
+		React Compiler → No
+-------------------------------------
+install mysql driver
+-------------------------------------
+cd next-crud-mysql-cookie
+npm install mysql2
+
+-------------------------------------
+Database files (new)
+-------------------------------------
+1. connection file src/lib/db.ts
+2. query file src/lib/userQueries.ts
+
+-------------------------------------
+Update server files (based on week 7)
+-------------------------------------
+1. download week 7's git/users/route.ts and paste into src/app/api/users/route.ts 
+2. download week 7's git/users/[id]/route.ts to src/app/api/users/[id]/route.ts 
+
+-------------------------------------
+Update layout, css and homepage (based on week 7)
+-------------------------------------
+1. download git/layout.tsx and paste into src/app/layout.tsx 
+2. download git/globals.css and paste into src/app/globals.css 
+3. download git/page.tsx and paste into src/app/page.tsx 
+
+-------------------------------------
+Docker files 
+-------------------------------------
+download git/dockerfiles and git/docker-compose.yml and paste into next-crud-mysql-cookie folder
+
+-------------------------------------
+compile and run
+-------------------------------------
+1. docker compose down --rmi all 
+		Only use --rmi all if you're troubleshooting.
+		This removes:
+			All images
+			Even cached base images
+			Slows future builds
+	or use
+	docker compose down -v
+2. docker compose up --build
+********************************  ********************************
+
+
+******************************** WEEK 10 ********************************
+-------------------------------------
+set, check and delete cookie
+-------------------------------------
+1. set cookie: download git/login/page.tsx and paste into src/app/login/page.tsx
+2. check and delete (logout) cookie: 
+		download git/users/page.tsx and paste into src/app/users/page.tsx....identify the new additions
+		
+-----checklist-----
+Cookie is set in:
+src/app/login/page.tsx → document.cookie = "user=..."
+
+Cookie is checked in:
+src/app/users/page.tsx → document.cookie (inside useEffect)
+
+-------------------------------------
+Authentication flow
+-------------------------------------
+1. Login page sets cookie using document.cookie
+2. Users page checks cookie before loading
+3. If cookie not found → redirect to /login
+4. If cookie exists → allow access
+
+-------------------------------------
+Logout functionality
+-------------------------------------
+1. Deletes cookie by setting expiry date in past
+2. Redirects user to login page
+3. Users page becomes protected again
+
+------------------------------------
+Test flow
+------------------------------------
+1. Open /users → should redirect
+2. Login → cookie created
+3. Access /users → allowed
+4. Logout → blocked again
