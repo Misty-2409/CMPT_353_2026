@@ -36,9 +36,9 @@ Update server files (based on week 7)
 -------------------------------------
 Update layout, css and homepage (based on week 7)
 -------------------------------------
-1. download git/layout.tsx and paste into src/app/layout.tsx 
-2. download git/globals.css and paste into src/app/globals.css 
-3. download git/page.tsx and paste into src/app/page.tsx 
+1. download git/app/layout.tsx and paste into src/app/layout.tsx 
+2. download git/app/globals.css and paste into src/app/globals.css 
+3. download git/app/page.tsx and paste into src/app/page.tsx 
 
 -------------------------------------
 Docker files 
