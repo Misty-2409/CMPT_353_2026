@@ -56,7 +56,7 @@ compile and run
 			Slows future builds
 	or use
 	docker compose down -v
-2. docker compose up --build
+2. docker compose up --build or doker compose up -d
 ********************************  ********************************
 
 
