@@ -4,7 +4,7 @@ Next.js,  Mysql, cookie
 -------------------------------------
 install Next.js and mysql
 -------------------------------------
-npx create-next-app@latest 
+npx create-next-app@latest next-crud-mysql-cookie
 
 	When prompts appear:
 		Would you like to use the recommended Next.js defaults? » No, customize settings
