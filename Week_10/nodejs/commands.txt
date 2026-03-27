@@ -1,0 +1,11 @@
+npm init -y
+npm install express cookie-parser express-session bcrypt
+
+simple-auth/
+│
+├── server.js
+├── users.json
+└── public/
+    ├── index.html
+    ├── home.html
+    └── style.css
