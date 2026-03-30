@@ -1,0 +1,71 @@
+Next.js,  Mysql, cookie, admin, user
+
+******************************** (week 7) ********************************
+-------------------------------------
+install Next.js and mysql
+-------------------------------------
+npx create-next-app@latest next-crud-cookie
+
+	When prompts appear:
+		Would you like to use the recommended Next.js defaults? » No, customize settings
+		TypeScript? → Yes
+		ESLint? → Yes
+		App Router? → Yes
+		Tailwind? → No (keep simple)
+		src directory? → Yes
+		Import alias? → No
+		React Compiler → No
+-------------------------------------
+install mysql driver
+-------------------------------------
+cd next-crud-mysql-cookie
+npm install mysql2
+
+-------------------------------------
+Database files (new)
+-------------------------------------
+1. connection file src/lib/db.ts (git/lib/)
+2. query file src/lib/userQueries.ts (git/lib/)
+
+Update layout, css and homepage 
+-------------------------------------
+1. download git/app/layout.tsx and paste into src/app/layout.tsx 
+2. download git/app/globals.css and paste into src/app/globals.css 
+3. download git/app/page.tsx and paste into src/app/page.tsx 
+
+-------------------------------------
+Docker files 
+-------------------------------------
+download git/dockerfiles and git/docker-compose.yml and paste into next-crud-mysql-cookie folder
+
+
+-------------------------------------
+pages 
+-------------------------------------
+1. signin
+	frontend: download git/app/login/page.tsx and paste into src/app/login/page.tsx 
+			  download git/app/users/page.tsx and paste into src/app/users/page.tsx 
+	backend: download git/app/api/login/route.ts and paste into src/app/api/login/route.ts
+2. signup
+	frontend: download git/app/signup/page.tsx and paste into src/app/signup/page.tsx 
+			  download git/app/welcome/page.tsx and paste into src/app/welcome/page.tsx
+	backend: download git/app/api/signup/route.ts and paste into src/app/api/signup/route.ts
+
+-------------------------------------
+
+
+-------------------------------------
+compile and run
+-------------------------------------
+1. docker compose down --rmi all 
+		Only use --rmi all if you're troubleshooting.
+		This removes:
+			All images
+			Even cached base images
+			Slows future builds
+	or use
+	docker compose down -v
+2. docker compose up --build or docker compose up -d
+********************************  ********************************
+
+
